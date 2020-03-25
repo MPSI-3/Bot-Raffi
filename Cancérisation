@@ -1,0 +1,28 @@
+import os
+from random import randint
+import discord
+
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print('Raffi paré au combat !'.format(client))
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content == 'Ping':
+        await message.channel.send('Pong ! :ping_pong: ')
+
+    if message.content.startswith('Bonjour') or message.content.startswith('bonjour'):
+        await message.channel.send('Bonsoir ! <3')
+
+    s = str(message.content)
+    l = s.split()
+    for i in l:
+        if i == 'quoi' or i == 'Quoi' or i == i == 'QUOI':
+            await message.channel.send('feur !')
+            break
+
