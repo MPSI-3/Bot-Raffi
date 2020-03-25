@@ -1,0 +1,52 @@
+# bot Jeux
+import os
+from random import randint
+import discord
+
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print('Raffi paré au combat !'.format(client))
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+ 
+     if l[0][0] == '_':        #Détecte si on a lancé un jeu
+    
+        if message.content.startswith('_dice'):
+            nbr_dice = int(l[1])
+            nbr_faces = int(l[2])
+            B = '🎲'
+            for i in range(nbr_dice):
+                A = randint(1,nbr_faces)
+                B += str(A)
+                if i < nbr_dice - 1:
+                    B += ' | '
+            await message.channel.send(B)
+    
+        if message.content.startswith('_janken'):
+            jankenlist = ['Pierre', 'Feuille', 'Ciseaux']
+            played = l[1]
+            b = randint(0,2)
+            B = jankenlist[b]
+            result = B
+            result += ' !'
+            a = 0
+            while l[1] != jankenlist[a]:
+                a += 1
+            if a == b:
+                result += ' Égalité :face_with_hand_over_mouth:'
+                await message.channel.send(result)
+            elif (a>b and b+1==a) or (a<b and a+b==2):
+                result += ' Tu as gagné ! :clap:'
+                await message.channel.send(result)
+            else:
+                result += ' Tu as perdu ! :crying_cat_face: '
+                await message.channel.send(result)
+
+#Fin des jeux
+
+client.run('NjkxOTg3NjU4OTI2MTk0ODIw.XnoOTA.EDDDGh-K1DSE6iWqngf6eqntSuQ')
