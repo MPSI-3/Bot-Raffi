@@ -15,7 +15,8 @@ async def on_message(message):
         return
  
      if l[0][0] == '_':        #Détecte si on a lancé un jeu
-    
+        
+        ##dés
         if message.content.startswith('_dice'):
             nbr_dice = int(l[1])
             nbr_faces = int(l[2])
@@ -26,7 +27,7 @@ async def on_message(message):
                 if i < nbr_dice - 1:
                     B += ' | '
             await message.channel.send(B)
-    
+        ##Pierre-Feuille-Ciseaux
         if message.content.startswith('_janken'):
             jankenlist = ['Pierre', 'Feuille', 'Ciseaux']
             played = l[1]
