@@ -13,8 +13,11 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
- 
-     if l[0][0] == '_':        #Détecte si on a lancé un jeu
+        
+    s = str(message.content)
+    l = s.split()
+    
+    if l[0][0] == '_':        #Détecte si on a lancé un jeu
         
         ##dés
         if message.content.startswith('_dice'):
