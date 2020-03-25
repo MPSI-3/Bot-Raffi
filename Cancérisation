@@ -25,4 +25,8 @@ async def on_message(message):
         if i == 'quoi' or i == 'Quoi' or i == i == 'QUOI':
             await message.channel.send('feur !')
             break
+           
+          
+ client.run('NjkxOTg3NjU4OTI2MTk0ODIw.XnoOTA.EDDDGh-K1DSE6iWqngf6eqntSuQ')
+
 
